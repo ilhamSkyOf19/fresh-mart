@@ -1,4 +1,4 @@
-import React, { useRef, useState, type RefObject } from 'react'
+import React, { useEffect, useRef, useState, type RefObject } from 'react'
 import InputSearch from '../InputSearch';
 
 
@@ -18,8 +18,10 @@ import useClickOutside from '../../hooks/dropDown';
 import { Link } from 'react-router-dom';
 import useHandleWrap from '../../hooks/handleWrap';
 
-
-const Navbar: React.FC = () => {
+type Props = {
+    showNavbar: boolean
+}
+const Navbar: React.FC<Props> = ({ showNavbar }) => {
 
     // state 
     const [showSubtitle, setShowSubtitle] = useState<boolean>(false)
@@ -41,11 +43,17 @@ const Navbar: React.FC = () => {
         setSearch(event.target.value)
     }
 
+    useEffect(() => {
+        if (!showNavbar) {
+            setShowSubtitle(false)
+        }
+    }, [showNavbar])
+
 
 
 
     return (
-        <div className='w-full  flex flex-col justify-start items-center shadow-md drop-shadow-2xl'>
+        <div className={`w-full  flex flex-col justify-start items-center shadow-md drop-shadow-2xl fixed top-0 z-40 bg-white ${showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'} transition-all duration-300`}>
             <div className='w-full px-6 flex flex-row justify-between items-center py-2 relative'>
                 <p className='flex-1 font-normal text-xs'>New Offers This Weekend only to <span className='text-primary-green'>Get 50%</span> Flote </p>
                 <div className='flex-1 flex flex-row justify-end items-center gap-4 relative'>
@@ -62,7 +70,7 @@ const Navbar: React.FC = () => {
 
             {/* content two */}
             <NavbarContentTwo handleSearch={handleSearch} value={search} />
-            <NavbarContentThree />
+            <NavbarContentThree showNavbar={showNavbar} />
         </div>
     )
 }
@@ -121,8 +129,13 @@ const NavbarContentTwo: React.FC<PropsInputSearch> = ({ value, handleSearch }) =
 export default Navbar
 
 
+
+type PropsContentThree = {
+    showNavbar: boolean
+}
+
 // content three
-const NavbarContentThree: React.FC = () => {
+const NavbarContentThree: React.FC<PropsContentThree> = ({ showNavbar }) => {
 
 
     // use handle wrap home
@@ -131,6 +144,14 @@ const NavbarContentThree: React.FC = () => {
     const { router: routerShop, routerWrap: routerWrapShop, showRouter: showRouterShop, setShowRouter: setShowRouterShop, handleRouter: handleRouterShop } = useHandleWrap();
     // use handle wrap page
     const { router: routerPage, routerWrap: routerWrapPage, showRouter: showRouterPage, setShowRouter: setShowRouterPage, handleRouter: handleRouterPage } = useHandleWrap();
+
+    useEffect(() => {
+        if (!showNavbar) {
+            setShowRouterHome(false)
+            setShowRouterShop(false)
+            setShowRouterPage(false)
+        }
+    }, [showNavbar])
 
 
 
