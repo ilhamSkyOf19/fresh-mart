@@ -1,31 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import useClickOutside from '../../hooks/dropDown'
 
 
 type PropsWrapperComponent = {
     subtitleRef: React.RefObject<HTMLDivElement>
     showSubtitle: boolean
     clickSubtitle: React.RefObject<HTMLDivElement>
-    setShowSubtitle: React.Dispatch<React.SetStateAction<boolean>>
-    handleShowSubtitle: () => void
+    setSubtitle: React.Dispatch<React.SetStateAction<boolean>>
 }
 // const wrapper subtitle 
-const WrapperComponent: React.FC<PropsWrapperComponent> = ({ subtitleRef, showSubtitle, clickSubtitle, setShowSubtitle, handleShowSubtitle }) => {
+const WrapperComponent: React.FC<PropsWrapperComponent> = ({ subtitleRef, showSubtitle, clickSubtitle, setSubtitle }) => {
 
 
     // handle show subtitle clikc outside 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (subtitleRef.current && !subtitleRef.current.contains(event.target as Node) && !clickSubtitle.current?.contains(event.target as Node)) {
-                setShowSubtitle(false)
-            }
-        }
-
-        document.addEventListener('mousedown', handleClickOutside)
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside)
-        }
-    }, [handleShowSubtitle])
+    useClickOutside({ refs: [subtitleRef, clickSubtitle], handler: setSubtitle });
 
 
 

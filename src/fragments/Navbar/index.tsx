@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, type RefObject } from 'react'
 import InputSearch from '../InputSearch';
 
 
@@ -14,6 +14,9 @@ import TextArrow from '../../components/TextArrow';
 import WrapperComponent from '../../components/WrapperDown';
 import { FaBars } from "react-icons/fa6";
 import { BsTelephone } from "react-icons/bs";
+import useClickOutside from '../../hooks/dropDown';
+import { Link } from 'react-router-dom';
+import useHandleWrap from '../../hooks/handleWrap';
 
 
 const Navbar: React.FC = () => {
@@ -50,11 +53,11 @@ const Navbar: React.FC = () => {
                         <MdOutlineLocationOn width={15} />
                         <p className='font-normal text-xs'>Store location</p>
                     </div>
-                    <TextArrow showSubtitle={showSubtitle} clickSubtitle={clickSubtitle as React.RefObject<HTMLDivElement>} handleShowSubtitle={handleShowSubtitle} label={'English'} />
+                    <TextArrow show={showSubtitle} useRef={clickSubtitle as React.RefObject<HTMLDivElement>} handleShow={handleShowSubtitle} label={'English'} />
                 </div>
 
                 {/* warapper */}
-                <WrapperComponent subtitleRef={subtitleRef as React.RefObject<HTMLDivElement>} showSubtitle={showSubtitle} clickSubtitle={clickSubtitle as React.RefObject<HTMLDivElement>} setShowSubtitle={setShowSubtitle} handleShowSubtitle={handleShowSubtitle} />
+                <WrapperComponent subtitleRef={subtitleRef as React.RefObject<HTMLDivElement>} showSubtitle={showSubtitle} clickSubtitle={clickSubtitle as React.RefObject<HTMLDivElement>} setSubtitle={setShowSubtitle} />
             </div>
 
             {/* content two */}
@@ -120,8 +123,19 @@ export default Navbar
 
 // content three
 const NavbarContentThree: React.FC = () => {
+
+
+    // use handle wrap home
+    const { router: routerHome, routerWrap: routerWrapHome, showRouter: showRouterHome, setShowRouter: setShowRouterHome, handleRouter: handleRouterHome } = useHandleWrap();
+    // use handle wrap shop
+    const { router: routerShop, routerWrap: routerWrapShop, showRouter: showRouterShop, setShowRouter: setShowRouterShop, handleRouter: handleRouterShop } = useHandleWrap();
+    // use handle wrap page
+    const { router: routerPage, routerWrap: routerWrapPage, showRouter: showRouterPage, setShowRouter: setShowRouterPage, handleRouter: handleRouterPage } = useHandleWrap();
+
+
+
     return (
-        <div className='w-full flex flex-row justify-between items-center py-3 border-t px-6 border-slate-200'>
+        <div className='w-full flex flex-row justify-between items-center py-3 border-t px-6 border-slate-200 relative'>
             {/* all departements */}
             <div className='flex-1 flex flex-row justify-start items-center gap-2 cursor-pointer'>
                 <FaBars className='text-xs' />
@@ -129,9 +143,9 @@ const NavbarContentThree: React.FC = () => {
             </div>
             {/* router list  */}
             <div className='flex-4 px-6 flex flex-row justify-start items-center gap-7 relative before:absolute before:w-[1px] before:h-[200%] before:right-0 before:bg-slate-200 after:absolute after:w-[1px] after:h-[200%] after:left-0 after:bg-slate-200'>
-                <TextArrow customText={{ fontWeight: 'bold' }} label='Home' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} />
-                <TextArrow customText={{ fontWeight: 'bold' }} label='Shop' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} />
-                <TextArrow customText={{ fontWeight: 'bold' }} label='Page' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} />
+                <TextArrow customText={{ fontWeight: 'bold' }} label='Home' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterHome} useRef={routerHome as React.RefObject<HTMLDivElement>} show={showRouterHome} />
+                <TextArrow customText={{ fontWeight: 'bold' }} label='Shop' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterShop} useRef={routerShop as React.RefObject<HTMLDivElement>} show={showRouterShop} />
+                <TextArrow customText={{ fontWeight: 'bold' }} label='Page' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterPage} useRef={routerPage as React.RefObject<HTMLDivElement>} show={showRouterPage} />
                 <p className='text-xs font-bold cursor-pointer'>Blog</p>
                 <p className='text-xs font-bold cursor-pointer'>On Sale</p>
                 <p className='text-xs font-bold cursor-pointer'>Contact</p>
@@ -143,6 +157,40 @@ const NavbarContentThree: React.FC = () => {
                 <BsTelephone className='text-lg text-primary-green' />
                 <p className='text-xs font-bold'>(+011)-(1900 33 989)</p>
             </div>
+
+            {/* wrapper router home  */}
+            <WrapperRouter refWrap={routerWrapHome as RefObject<HTMLDivElement>} refClick={routerHome as RefObject<HTMLDivElement>} showWrap={showRouterHome} setShowWrap={setShowRouterHome} left={15} />
+            {/* wrapper router */}
+            <WrapperRouter refWrap={routerWrapShop as RefObject<HTMLDivElement>} refClick={routerShop as RefObject<HTMLDivElement>} showWrap={showRouterShop} setShowWrap={setShowRouterShop} left={20} />
+            {/* wrapper router */}
+            <WrapperRouter refWrap={routerWrapPage as RefObject<HTMLDivElement>} refClick={routerPage as RefObject<HTMLDivElement>} showWrap={showRouterPage} setShowWrap={setShowRouterPage} left={25} />
+
+        </div>
+    )
+}
+
+type PropsWrapperRouter = {
+    refWrap: React.RefObject<HTMLDivElement>,
+    refClick: React.RefObject<HTMLDivElement>,
+    showWrap: boolean,
+    setShowWrap: React.Dispatch<React.SetStateAction<boolean>>
+    left: number
+}
+
+// wrapper router 
+const WrapperRouter: React.FC<PropsWrapperRouter> = ({ refWrap, refClick, showWrap, setShowWrap, left }) => {
+
+
+    useClickOutside({ refs: [refWrap, refClick], handler: setShowWrap });
+
+    return (
+        <div ref={refWrap as RefObject<HTMLDivElement>} className={`text-xs flex flex-col justify-start items-start absolute w-[8rem] bg-white shadow-md top-full  overflow-hidden transition-all duration-300 z-20 ${showWrap ? 'max-h-[15rem]' : ' max-h-0'}`} style={{ left: `${left}rem` }}>
+            <Link to={'/'} className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>Shop</Link>
+            <Link to={'/'} className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>Cart</Link>
+            <Link to={'/'} className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>Blog</Link>
+            <Link to={'/'} className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>On Sale</Link>
+            <Link to={'/'} className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>Contact</Link>
+            <Link to={'/'} className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>About Us</Link>
 
         </div>
     )
