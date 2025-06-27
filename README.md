@@ -44,7 +44,24 @@ cd etoko-fresh-mart
 ### 4. Install Bun
   bun run build
 
-  
+```
+
+# 🙋 Kontribusi
+
+  - Pull Request sangat terbuka! Ikuti langkah berikut:
+  - Fork repo ini
+  - Buat branch fitur: git checkout -b fitur-baru
+  - Commit: git commit -m "Tambah fitur"
+  - Push: git push origin fitur-baru
+  - Buka Pull Request ke repo utama
+
+# 📬 Kontak 
+
+📧 Email: ilhamm778866@gmail.com
+
+
+# 📄 Lisensi
+MIT License © 2025 Ilham Rohmatulloh
 
 
 
