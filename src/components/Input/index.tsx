@@ -16,7 +16,7 @@ const Input: React.FC<Props> = ({ value, handleChange, height, placeholder }) =>
             placeholder={placeholder}
             value={value}
             onChange={handleChange}
-            className="w-full h-10 px-4 py-2 text-sm outline-none"
+            className="w-full h-10 px-4 py-2 text-[0.7rem] outline-none"
             style={{ height }}
         />
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Input, { type Props } from '../../components/Input'
-import Button from '../../components/Button/Index'
+import Button from '../../components/Button'
 
 const InputSearch: React.FC<Props> = ({ value, handleChange, height, placeholder, handleClick }) => {
     return (

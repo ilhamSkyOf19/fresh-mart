@@ -55,11 +55,11 @@ const Navbar: React.FC<Props> = ({ showNavbar }) => {
     return (
         <div className={`w-full  flex flex-col justify-start items-center shadow-md drop-shadow-2xl fixed top-0 z-40 bg-white ${showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'} transition-all duration-300`}>
             <div className='w-full px-6 flex flex-row justify-between items-center py-2 relative'>
-                <p className='flex-1 font-normal text-xs'>New Offers This Weekend only to <span className='text-primary-green'>Get 50%</span> Flote </p>
+                <p className='flex-1 font-normal text-to-small'>New Offers This Weekend only to <span className='text-primary-green'>Get 50%</span> Flote </p>
                 <div className='flex-1 flex flex-row justify-end items-center gap-4 relative'>
                     <div className='w-[20%] flex flex-row justify-start items-center relative before:absolute before:w-[1px] before:h-[120%] before:right-0 before:bg-gray-400 gap-1 cursor-pointer'>
-                        <MdOutlineLocationOn width={15} />
-                        <p className='font-normal text-xs'>Store location</p>
+                        <MdOutlineLocationOn width={13} />
+                        <p className='font-normal text-to-small'>Store location</p>
                     </div>
                     <TextArrow show={showSubtitle} useRef={clickSubtitle as React.RefObject<HTMLDivElement>} handleShow={handleShowSubtitle} label={'English'} />
                 </div>
@@ -89,26 +89,25 @@ type PropsInputSearch = {
 // Navbar content 2
 const NavbarContentTwo: React.FC<PropsInputSearch> = ({ value, handleSearch }) => {
     return (
-        <div className='w-full flex flex-row justify-between items-center py-3 border-t px-6 border-slate-200'>
+        <div className='w-full flex flex-row justify-between items-center py-2 border-t px-6 border-slate-200'>
             <div className='flex-1 flex flex-row justify-start items-center'>
-                <img src={logo} alt="logo" width={150} />
+                <img src={logo} alt="logo" width={140} />
             </div>
             <div className='flex-2 flex flex-row justify-center items-center'>
-                <InputSearch height='2.5rem' value={value} handleChange={handleSearch} placeholder='Search' />
+                <InputSearch height='2.2rem' value={value} handleChange={handleSearch} placeholder='Search' />
             </div>
             <div className='flex-1 flex flex-row justify-end items-center gap-8'>
-
                 {/* user login */}
                 <div className='flex flex-row justify-center items-center gap-2 cursor-pointer'>
-                    <div className='flex flex-row justify-center items-center w-[2.3rem] h-[2.2rem] bg-gray-200 rounded-full'>
-                        <FaRegUser className='text-xl' />
+                    <div className='flex flex-row justify-center items-center w-[2rem] h-[2rem] bg-gray-200 rounded-full'>
+                        <FaRegUser className='text-sm' />
                     </div>
-                    <p className='font-semibold text-sm'>Login</p>
+                    <p className='font-semibold text-t0-small'>Login</p>
                 </div>
 
                 {/* favorite  */}
                 <div className='flex flex-row justify-center items-center w-[2.2rem] h-[2.2rem] bg-gray-200 rounded-full relative cursor-pointer group hover:bg-primary-orange transition-all duration-200'>
-                    <MdOutlineFavoriteBorder className='text-xl group-hover:text-white transition-all duration-200' />
+                    <MdOutlineFavoriteBorder className='text-lg group-hover:text-white transition-all duration-200' />
                     <div className='w-[1.2rem] h-[1.2rem] bg-primary-orange absolute top-0 -right-2 rounded-full flex flex-row justify-center items-center group-hover:bg-primary-green transition-all duration-200'>
                         <p className='text-[0.6rem] text-white'>3</p>
                     </div>
@@ -156,7 +155,7 @@ const NavbarContentThree: React.FC<PropsContentThree> = ({ showNavbar }) => {
 
 
     return (
-        <div className='w-full flex flex-row justify-between items-center py-3 border-t px-6 border-slate-200 relative'>
+        <div className='w-full flex flex-row justify-between items-center py-2.5 border-t px-6 border-slate-200 relative'>
             {/* all departements */}
             <div className='flex-1 flex flex-row justify-start items-center gap-2 cursor-pointer'>
                 <FaBars className='text-xs' />
@@ -164,9 +163,9 @@ const NavbarContentThree: React.FC<PropsContentThree> = ({ showNavbar }) => {
             </div>
             {/* router list  */}
             <div className='flex-4 px-6 flex flex-row justify-start items-center gap-7 relative before:absolute before:w-[1px] before:h-[200%] before:right-0 before:bg-slate-200 after:absolute after:w-[1px] after:h-[200%] after:left-0 after:bg-slate-200'>
-                <TextArrow customText={{ fontWeight: 'bold' }} label='Home' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterHome} useRef={routerHome as React.RefObject<HTMLDivElement>} show={showRouterHome} />
-                <TextArrow customText={{ fontWeight: 'bold' }} label='Shop' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterShop} useRef={routerShop as React.RefObject<HTMLDivElement>} show={showRouterShop} />
-                <TextArrow customText={{ fontWeight: 'bold' }} label='Page' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterPage} useRef={routerPage as React.RefObject<HTMLDivElement>} show={showRouterPage} />
+                <TextArrow customText={{ fontWeight: 'bold', fontSize: '0.75rem' }} label='Home' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterHome} useRef={routerHome as React.RefObject<HTMLDivElement>} show={showRouterHome} />
+                <TextArrow customText={{ fontWeight: 'bold', fontSize: '0.75rem' }} label='Shop' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterShop} useRef={routerShop as React.RefObject<HTMLDivElement>} show={showRouterShop} />
+                <TextArrow customText={{ fontWeight: 'bold', fontSize: '0.75rem' }} label='Page' customIcon={{ fontSize: '0.7rem', height: '1rem', paddingBottom: '0.2rem' }} handleShow={handleRouterPage} useRef={routerPage as React.RefObject<HTMLDivElement>} show={showRouterPage} />
                 <p className='text-xs font-bold cursor-pointer'>Blog</p>
                 <p className='text-xs font-bold cursor-pointer'>On Sale</p>
                 <p className='text-xs font-bold cursor-pointer'>Contact</p>

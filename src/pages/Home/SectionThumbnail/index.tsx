@@ -42,7 +42,7 @@ const SectionOne: React.FC = () => {
                         delaySpeed={1000}
                     />
                 </p>
-                <p className='font-normal text-white text-sm w-[60%] mb-12'>Order today and receive your package tomorrow by etoko</p>
+                <p className='font-normal text-white text-lg w-[70%] mb-12'>Order today and receive your package tomorrow by etoko</p>
                 <Button label='Order Now' handleClick={() => { console.log('ok') }} custom={{ width: '9rem', textAlign: 'center', textTransform: 'uppercase', }} />
             </div>
 
@@ -93,17 +93,10 @@ const Element: React.FC = () => {
                 <img src={element1} alt="element" className='z-10 w-[12rem]' />
                 <img src={element3} alt="element" className='absolute bottom-0 top-24 left-4 z-10 w-[5rem]' />
             </IconElement>
-            <IconElement custom={{ bottom: '-2rem', right: '-7rem', width: '14rem', height: '10rem' }} >
-                <img src={element1} alt="element" className='z-10 w-[12rem]' />
-                <img src={element3} alt="element" className='absolute bottom-32  right-20 z-10 w-[5rem]' />
-            </IconElement>
             <IconElement custom={{ top: '1rem', left: '8rem', width: '10rem', height: '10rem' }}>
                 <img src={element3} alt="element" className='w-[5rem] z-10' />
             </IconElement>
             <IconElement custom={{ bottom: '3rem', left: '-1rem', width: '10rem', height: '10rem' }}>
-                <img src={element3} alt="element" className='w-[4rem] z-10' />
-            </IconElement>
-            <IconElement custom={{ bottom: '10rem', left: '30rem', width: '10rem', height: '10rem' }}>
                 <img src={element3} alt="element" className='w-[4rem] z-10' />
             </IconElement>
         </>

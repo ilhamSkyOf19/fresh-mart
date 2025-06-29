@@ -18,7 +18,7 @@ const WrapperComponent: React.FC<PropsWrapperComponent> = ({ subtitleRef, showSu
 
 
     return (
-        <div ref={subtitleRef} className={`text-xs flex flex-col justify-start items-start absolute w-[5.5rem] bg-white shadow-md right-4 top-full  overflow-hidden transition-all duration-300 z-20 ${showSubtitle ? 'max-h-[10rem]' : ' max-h-0'}`}>
+        <div ref={subtitleRef} className={`text-to-small flex flex-col justify-start items-start absolute w-[5.5rem] bg-white shadow-md right-4 top-full  overflow-hidden transition-all duration-300 z-20 ${showSubtitle ? 'max-h-[10rem]' : ' max-h-0'}`}>
             <p className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>Indonesia</p>
             <p className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>German</p>
             <p className='cursor-pointer hover:bg-gray-200 py-1.5 px-2 w-full'>English</p>
