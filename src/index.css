@@ -13,10 +13,22 @@
     --color-primary-green: #80CD32;
     --color-secondary-green: #4b8c06;
     --color-primary-orange: #FFA500;
+    --color-white-smoke: #F5F5F5;
 }
 
 
 body {
     @apply font-poppins
+}
+
+
+/* sembunyikan scrollbar di semua browser */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE dan Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
 }
 

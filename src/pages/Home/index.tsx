@@ -3,6 +3,8 @@ import Navbar from '../../fragments/Navbar'
 
 import SectionOne from './SectionThumbnail';
 import SectionTwo from './SectionTwo';
+import SectionFeturedProduct from './SectionFeturedProduct';
+import SectionInformation from './SectionInformation';
 
 
 const index: React.FC = () => {
@@ -35,6 +37,8 @@ const index: React.FC = () => {
             <Navbar showNavbar={showNavbar} />
             <SectionOne />
             <SectionTwo />
+            <SectionFeturedProduct />
+            <SectionInformation />
         </div>
     )
 }

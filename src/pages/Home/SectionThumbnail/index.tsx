@@ -4,7 +4,7 @@ import React, { useState } from "react"
 
 // images 
 import thumbnail from '../../../assets/images/thumbnail.png'
-import Button from '../../../components/Button/Index';
+import Button from '../../../components/Button';
 
 
 // elements img 

@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "category": "Bread",
+        "title": "Baguette Bread - Freshly Baked by Origin Bakery",
+        "price": 99,
+        "favorite": true,
+        "img": "baguette-bread.png"
+    },
+    {
+        "id": 2,
+        "category": "Bread",
+        "title": "Bagel Bread - Freshly Baked by Origin Bakery",
+        "price": 99,
+        "favorite": false,
+        "img": "bagel-bread.png"
+    },
+    {
+        "id": 3,
+        "category": "Bread",
+        "title": "Pretzel Bread - Freshly Baked by Origin Bakery",
+        "price": 99,
+        "favorite": false,
+        "img": "pretzels-bread.png"
+    },
+    {
+        "id": 4,
+        "category": "Bread",
+        "title": "Croissant Bread - Freshly Baked by Origin Bakery",
+        "price": 99,
+        "favorite": false,
+        "img": "croissant.png"
+    },
+    {
+        "id": 5,
+        "category": "Bread",
+        "title": "Baguette Bread - Freshly Baked by Origin Bakery",
+        "price": 99,
+        "favorite": false,
+        "img": "baguette-bread-2.png"
+    },
+    {
+        "id": 6,
+        "category": "Bread",
+        "title": "White Bread - Freshly Baked by Origin Bakery",
+        "price": 99,
+        "favorite": false,
+        "img": "white-bread.png"
+    },
+    {
+        "id": 7,
+        "category": "Cake",
+        "title": "Pie Apple- Freshly Baked by Origin Bakery",
+        "price": 99,
+        "favorite": false,
+        "img": "pie.png"
+    },
+    {
+        "id": 8,
+        "category": "Supplement",
+        "title": "MuscleTech Protein Whey Nitro-Tech",
+        "price": 99,
+        "favorite": false,
+        "img": "whey.png"
+    }
+]

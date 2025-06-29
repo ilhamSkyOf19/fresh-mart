@@ -17,7 +17,7 @@ import { GiSlicedBread } from "react-icons/gi";
 
 const SectionTwo: React.FC = () => {
     return (
-        <div className='w-full min-h-[100vh] px-6 flex flex-col justify-start items-center pt-8 pb-24 bg-[#F5F5F5]'>
+        <div className='w-full min-h-[100vh] px-6 flex flex-col justify-start items-center pt-8 pb-24 bg-white-smoke'>
             <div className='w-full h-[33vh] flex flex-row justify-between items-center gap-5 mb-20'>
                 <CardCategory label='Fruits & Vegetables' category='fruits' deskripsi='Fresh, natural produce packed with nutrients. Perfect for healthy meals, snacks, or juicing—supporting a balanced lifestyle every day.' />
 
@@ -86,7 +86,7 @@ const StoriesComponent: React.FC = () => {
 
     // handle animated img 
     useEffect(() => {
-        const interval = setInterval(() => {
+        const interval: ReturnType<typeof setInterval> = setInterval(() => {
             setIndex(prevIndex => (prevIndex + 1) % images.length)
         }, 5000)
 
