@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "category": "new vegetables",
+        "title": "The Nutritional Power of Leafy Greens in Your Diet",
+        "image": "news-1.jpg",
+        "date": "2025-06-28",
+        "commentCount": 12,
+        "description": "Leafy vegetables like spinach and kale are packed with fiber, vitamins, and minerals essential for daily health and immunity."
+    },
+    {
+        "id": 2,
+        "category": "new vegetables",
+        "title": "Fresh Carrots and Broccoli: Everyday Superfoods",
+        "image": "news-2.jpg",
+        "date": "2025-06-25",
+        "commentCount": 8,
+        "description": "Incorporating carrots and broccoli into meals boosts your intake of antioxidants and supports better eye and bone health."
+    },
+    {
+        "id": 3,
+        "category": "new breakfast",
+        "title": "Top 5 Nutritious Breakfast Ideas to Start Your Day",
+        "image": "news-3.jpg",
+        "date": "2025-06-21",
+        "commentCount": 5,
+        "description": "From oatmeal bowls to fruit smoothies, discover easy and healthy breakfast options to fuel your mornings with energy and focus."
+    },
+    {
+        "id": 4,
+        "category": "new recipes",
+        "title": "Try This Easy Homemade Vegetable Stir Fry",
+        "image": "news-4.jpg",
+        "date": "2025-06-18",
+        "commentCount": 17,
+        "description": "A quick and flavorful vegetable stir fry recipe using bell peppers, broccoli, and soy sauce perfect for a weeknight dinner."
+    },
+    {
+        "id": 5,
+        "category": "new bread",
+        "title": "Benefits of Whole Wheat Bread in a Balanced Diet",
+        "image": "news-5.jpg",
+        "date": "2025-06-15",
+        "commentCount": 3,
+        "description": "Whole wheat bread provides complex carbs and fiber, making it an excellent choice for heart health and sustained energy."
+    },
+    {
+        "id": 6,
+        "category": "new bread",
+        "title": "Discover Multigrain Bread for a Healthier You",
+        "image": "news-6.jpg",
+        "date": "2025-06-12",
+        "commentCount": 9,
+        "description": "Multigrain bread combines seeds and grains that support digestion and offer a rich, hearty texture perfect for sandwiches."
+    }
+]

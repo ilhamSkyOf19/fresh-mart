@@ -5,6 +5,7 @@ import CardProduct from '../../../components/CardProduct'
 // json 
 import product from '../../../json/products.json'
 import type { Product } from '../../../model/product-model'
+import ContainerSlideX from '../../../components/layouts/Container/SlideX'
 
 
 const SectionFeturedProduct: React.FC = () => {
@@ -57,14 +58,14 @@ type Props = {
 const ContainerCardProduct: React.FC<Props> = ({ data }) => {
     return (
         <div className='w-full min-h-[50vh] flex flex-row justify-center items-center relative before:absolute before:w-full before:h-[1px] before:bg-gray-300 before:top-0 py-3'>
-            <div className='w-[90%] h-full overflow-x-scroll flex flex-row justify-start items-centers gap-6 py-6 scrollbar-hide '>
+            <ContainerSlideX>
                 {
                     data?.map((item, index) => (
                         <CardProduct key={index} img={item?.img} category={item.category} title={item.title} price={item.price} favorite={item?.favorite} />
 
                     ))
                 }
-            </div>
+            </ContainerSlideX>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import SectionOne from './SectionThumbnail';
 import SectionTwo from './SectionTwo';
 import SectionFeturedProduct from './SectionFeturedProduct';
 import SectionInformation from './SectionInformation';
+import SectionNewsBlogs from './SectionNewsBlogs';
 
 
 const index: React.FC = () => {
@@ -39,6 +40,7 @@ const index: React.FC = () => {
             <SectionTwo />
             <SectionFeturedProduct />
             <SectionInformation />
+            <SectionNewsBlogs />
         </div>
     )
 }

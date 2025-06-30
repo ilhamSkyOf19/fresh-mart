@@ -3,6 +3,8 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FaHeart } from "react-icons/fa"
 import { IoRepeat } from "react-icons/io5";
+import TextCategory from '../TextCategory';
+import TitleCard from '../TitleCard';
 
 
 type Props = {
@@ -24,8 +26,8 @@ const CardProduct: React.FC<Props> = ({ img, category, title, price, favorite })
             </div>
             <div className='flex-1 w-full px-3 flex flex-col justify-between items-start pb-6'>
                 <div className='w-full flex flex-col justify-start items-start gap-1.5'>
-                    <p className='font-normal italic text-to-small text-primary-green'>{category ?? 'category'}</p>
-                    <p className='font-semibold text-sm pr-4'>{title ?? 'title'}</p>
+                    <TextCategory text={category} />
+                    <TitleCard text={title} />
                     <p className='font-semibold text-xs text-primary-orange'>${price ?? 'price'}</p>
                 </div>
                 <div className='w-full flex-row flex justify-between items-center'>
