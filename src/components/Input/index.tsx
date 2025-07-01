@@ -7,6 +7,7 @@ export type Props = {
     height?: string
     placeholder: string
     handleClick?: () => void
+    subscription?: boolean
 }
 
 const Input: React.FC<Props> = ({ value, handleChange, height, placeholder }) => {

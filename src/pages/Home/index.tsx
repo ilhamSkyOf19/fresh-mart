@@ -6,6 +6,8 @@ import SectionTwo from './SectionTwo';
 import SectionFeturedProduct from './SectionFeturedProduct';
 import SectionInformation from './SectionInformation';
 import SectionNewsBlogs from './SectionNewsBlogs';
+import SectionFeedback from './SectionFeedback';
+import SectionFooter from './SectionFooter';
 
 
 const index: React.FC = () => {
@@ -41,6 +43,8 @@ const index: React.FC = () => {
             <SectionFeturedProduct />
             <SectionInformation />
             <SectionNewsBlogs />
+            <SectionFeedback />
+            <SectionFooter />
         </div>
     )
 }
