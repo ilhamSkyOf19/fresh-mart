@@ -21,7 +21,7 @@ const CardProduct: React.FC<Props> = ({ img, category, title, price, favorite })
 
     return (
         <div className='w-[15rem] h-[22rem] flex flex-col flex-justify-center items-center bg-white shadow-md shrink-0 rounded-md'>
-            <div className='flex-1/5 w-full flex justify-center items-center overflow-hidden group cursor-pointer'>
+            <div className='flex-1/5 w-full h-full flex justify-center items-center overflow-hidden group cursor-pointer'>
                 <img src={`/products/${img ?? 'wheys.png'}`} alt="thumbnail" className='w-[70%]  object-cover group-hover:scale-110 transition-all duration-500' />
             </div>
             <div className='flex-1 w-full px-3 flex flex-col justify-between items-start pb-6'>
