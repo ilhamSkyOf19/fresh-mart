@@ -43,7 +43,7 @@ const SectionOne: React.FC = () => {
                     />
                 </p>
                 <p className='font-normal text-white text-lg w-[70%] mb-12'>Order today and receive your package tomorrow by etoko</p>
-                <Button label='Order Now' handleClick={() => { console.log('ok') }} custom={{ width: '9rem', textAlign: 'center', textTransform: 'uppercase', }} />
+                <Button label='Order Now' handleClick={() => { console.log('ok') }} custom={{ width: '9rem', textAlign: 'center', textTransform: 'uppercase', padding: '0.7rem 0', fontSize: '0.75rem' }} />
             </div>
 
             {/* content left */}
