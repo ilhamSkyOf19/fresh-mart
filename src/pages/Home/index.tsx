@@ -35,6 +35,12 @@ const index: React.FC = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [])
+
+
+
+
+
+
     return (
         <div className='w-full min-h-screen overflow-hidden flex flex-col justify-start items-center'>
             <Navbar showNavbar={showNavbar} />

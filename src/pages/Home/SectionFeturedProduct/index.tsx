@@ -3,31 +3,64 @@ import SubJudulGreenBlack from '../../../components/SubJudulGreenBlack'
 import CardProduct from '../../../components/CardProduct'
 
 // json 
-import product from '../../../json/products.json'
-import type { Product } from '../../../model/product-model'
 import ContainerSlideX from '../../../components/layouts/Container/SlideX'
+import type { ProductRes } from '../../../types/product-type'
+import { ProductServiceAPI } from '../../../service/createProduct.service'
 
 
 const SectionFeturedProduct: React.FC = () => {
     // state data
-    const [data, setData] = useState<Product[] | null>(null);
+    const [data, setData] = useState<ProductRes[] | null>(null);
     const [category, setCategory] = useState<string>('organic');
 
     // get data
+    // get data 
     useEffect(() => {
-        setData(product.filter((item) => item.category === category));
-    }, [category]);
+        const fetch = async () => {
+            const fetch = await ProductServiceAPI.getProducts(category);
+            if (fetch) {
+                setData(fetch);
+            } else {
+                setData([]);
+            }
+        }
+
+        fetch();
+    }, [category])
+
 
     // handle category 
     const handleCategory = (category: string) => {
         setCategory(category);
     };
 
+    // handle favorite 
+    const handleFavorite = async (id: number | null, favorite: string) => {
+        if (!id) return;
+
+        await ProductServiceAPI.updateFavorite(id ?? 0, favorite);
+
+        setData((prev) =>
+            prev
+                ? prev.map((item) =>
+                    item.id === id ? { ...item, favorite: favorite === 'true' } : item
+                )
+                : prev
+        );
+    };
+
+
+
+
+
+
+
+
     return (
         <div className='w-full min-h-[100vh] flex flex-col justify-start items-center bg-white-smoke'>
             <SubJudulGreenBlack label1='Featured' label2='Product' />
             <FilterListComponent handleCategory={handleCategory} />
-            <ContainerCardProduct data={data} />
+            <ContainerCardProduct data={data} handleFavorite={handleFavorite} />
 
         </div>
     )
@@ -60,17 +93,18 @@ const FilterListComponent: React.FC<FilterListProps> = ({ handleCategory }) => {
 
 
 type Props = {
-    data?: Product[] | null
+    data?: ProductRes[] | null;
+    handleFavorite?: (id: number | null, favorite: string) => void
 }
 // const cards product 
-const ContainerCardProduct: React.FC<Props> = ({ data }) => {
+const ContainerCardProduct: React.FC<Props> = ({ data, handleFavorite }) => {
     return (
         <div className='w-full min-h-[50vh] flex flex-row justify-center items-center relative before:absolute before:w-full before:h-[1px] before:bg-gray-300 before:top-0 py-3'>
             <ContainerSlideX>
                 {
                     data ? (
                         data?.map((item, index) => (
-                            <CardProduct key={index} img={item?.img} category={item.category} title={item.title} price={item.price} favorite={item?.favorite} />
+                            <CardProduct key={index} data={item} handleFavorite={handleFavorite} />
 
                         ))
 

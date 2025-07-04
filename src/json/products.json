@@ -1,258 +1,290 @@
 [
     {
-        "id": 1,
         "category": "bread",
         "title": "Baguette Bread - Freshly Baked by Origin Bakery",
         "price": 99,
         "favorite": true,
-        "img": "baguette-bread.png"
+        "img": "baguette-bread.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 2,
         "category": "bread",
         "title": "Bagel Bread - Freshly Baked by Origin Bakery",
         "price": 99,
         "favorite": false,
-        "img": "bagel-bread.png"
+        "img": "bagel-bread.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 3,
         "category": "bread",
         "title": "Pretzel Bread - Freshly Baked by Origin Bakery",
         "price": 99,
         "favorite": false,
-        "img": "pretzels-bread.png"
+        "img": "pretzels-bread.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 4,
         "category": "bread",
         "title": "Croissant Bread - Freshly Baked by Origin Bakery",
         "price": 99,
         "favorite": false,
-        "img": "croissant.png"
+        "img": "croissant.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 5,
         "category": "bread",
         "title": "Baguette Bread - Freshly Baked by Origin Bakery",
         "price": 99,
         "favorite": false,
-        "img": "baguette-bread-2.png"
+        "img": "baguette-bread-2.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 6,
         "category": "bread",
         "title": "White Bread - Freshly Baked by Origin Bakery",
         "price": 99,
         "favorite": false,
-        "img": "white-bread.png"
+        "img": "white-bread.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 7,
         "category": "bread",
         "title": "Pie Apple- Freshly Baked by Origin Bakery",
         "price": 99,
         "favorite": false,
-        "img": "pie.png"
+        "img": "pie.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 9,
         "category": "organic",
         "title": "Onion - Fresh Organic Vegetable",
         "price": 99,
         "favorite": false,
-        "img": "onion.png"
+        "img": "onion.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 10,
         "category": "organic",
         "title": "Chinese Cabbage - Fresh Organic Vegetable",
         "price": 99,
         "favorite": false,
-        "img": "chinese-cabbage.png"
+        "img": "chinese-cabbage.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 11,
         "category": "organic",
         "title": "Carrot - Fresh Organic Vegetable",
         "price": 99,
         "favorite": false,
-        "img": "carrot.png"
+        "img": "carrot.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 12,
         "category": "organic",
         "title": "Tomato - Fresh Organic Vegetable",
         "price": 99,
         "favorite": false,
-        "img": "tomato.png"
+        "img": "tomato.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 13,
         "category": "organic",
         "title": "Broccoli - Fresh Organic Vegetable",
         "price": 99,
         "favorite": false,
-        "img": "broccoli.png"
+        "img": "broccoli.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 14,
         "category": "organic",
         "title": "Eggplant - Fresh Organic Vegetable",
         "price": 99,
         "favorite": false,
-        "img": "eggplant.png"
+        "img": "eggplant.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 15,
         "category": "organic",
         "title": "Peanut - Fresh Organic Produce",
         "price": 99,
         "favorite": false,
-        "img": "peanut.png"
+        "img": "peanut.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 16,
         "category": "organic",
         "title": "Potato - Fresh Organic Vegetable",
         "price": 99,
         "favorite": false,
-        "img": "potato.png"
+        "img": "potato.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 17,
         "category": "fruits",
         "title": "Apple - Fresh Organic Fruit, Crisp and Sweet, Perfect for Snacking",
         "price": 99,
         "favorite": false,
-        "img": "apple.png"
+        "img": "apple.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 18,
         "category": "fruits",
         "title": "Kiwi - Fresh Organic Fruit, Packed with Vitamin C and Fiber",
         "price": 99,
         "favorite": false,
-        "img": "kiwi.png"
+        "img": "kiwi.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 19,
         "category": "fruits",
         "title": "Pineapple - Fresh Organic Fruit, Juicy Tropical Taste, Great for Juices",
         "price": 99,
         "favorite": false,
-        "img": "pineapple.png"
+        "img": "pineapple.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 20,
         "category": "fruits",
         "title": "Banana - Fresh Organic Fruit, Naturally Sweet and Energy Boosting",
         "price": 99,
         "favorite": false,
-        "img": "banana.png"
+        "img": "banana.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 21,
         "category": "fruits",
         "title": "Grape - Fresh Organic Fruit, Sweet and Seedless, Perfect for Snacking",
         "price": 99,
         "favorite": false,
-        "img": "grape.png"
+        "img": "grape.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 22,
         "category": "fruits",
         "title": "Orange - Fresh Organic Fruit, Juicy Citrus Rich in Vitamin C",
         "price": 99,
         "favorite": false,
-        "img": "orange.png"
+        "img": "orange.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 23,
         "category": "fruits",
         "title": "Avocado - Fresh Organic Fruit, Creamy Texture, High in Healthy Fats",
         "price": 99,
         "favorite": false,
-        "img": "avocado.png"
+        "img": "avocado.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 24,
         "category": "seafood",
         "title": "Crab - Wild Caught and Freshly Delivered",
         "price": 99,
         "favorite": false,
-        "img": "crab.png"
+        "img": "crab.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 25,
         "category": "seafood",
         "title": "Lobster - Premium Ocean Lobster Selection",
         "price": 99,
         "favorite": false,
-        "img": "lobster.png"
+        "img": "lobster.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 26,
         "category": "seafood",
         "title": "Octopus - Tender & Cleaned Whole Octopus",
         "price": 99,
         "favorite": false,
-        "img": "octopus.png"
+        "img": "octopus.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 27,
         "category": "seafood",
         "title": "Salmon - Fresh Atlantic Salmon Fillet",
         "price": 99,
         "favorite": false,
-        "img": "salmon.png"
+        "img": "salmon.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 28,
         "category": "seafood",
         "title": "Shell - Organic Assorted Shellfish Pack",
         "price": 99,
         "favorite": false,
-        "img": "shell.png"
+        "img": "shell.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 29,
         "category": "seafood",
         "title": "Shrimp - Peeled & Deveined Jumbo Shrimp",
         "price": 99,
         "favorite": false,
-        "img": "shrimp.png"
+        "img": "shrimp.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 30,
         "category": "seafood",
         "title": "Squid - Fresh Cleaned Squid Tubes and Tentacles",
         "price": 99,
         "favorite": false,
-        "img": "squid.png"
+        "img": "squid.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 31,
         "category": "seafood",
         "title": "Tuna - Sashimi Grade Yellowfin Tuna Steaks",
         "price": 99,
         "favorite": false,
-        "img": "tuna.png"
+        "img": "tuna.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 32,
         "category": "wine & beer",
         "title": "Wine - Premium Red Wine Bottle from Local Vineyard",
         "price": 199,
         "favorite": false,
-        "img": "wine.png"
+        "img": "wine.png",
+        "netWeight": 100,
+        "stock": 3
     },
     {
-        "id": 33,
         "category": "wine & beer",
         "title": "Beer - Classic Craft Beer with Rich Flavor",
         "price": 89,
         "favorite": false,
-        "img": "beer.png"
+        "img": "beer.png",
+        "netWeight": 100,
+        "stock": 3
     }
 ]
