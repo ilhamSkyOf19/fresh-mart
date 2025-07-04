@@ -12,7 +12,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 
-const Cart: React.FC = () => {
+const Cart = () => {
     // state code 
     const [code, setCode] = useState<string>('')
 
