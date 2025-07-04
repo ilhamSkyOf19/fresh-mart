@@ -8,9 +8,10 @@ export type Props = {
     placeholder: string
     handleClick?: () => void
     subscription?: boolean
+    custom?: React.CSSProperties
 }
 
-const Input: React.FC<Props> = ({ value, handleChange, height, placeholder }) => {
+const Input: React.FC<Props> = ({ value, handleChange, height, placeholder, custom }) => {
     return (
         <input
             type="text"
@@ -18,7 +19,7 @@ const Input: React.FC<Props> = ({ value, handleChange, height, placeholder }) =>
             value={value}
             onChange={handleChange}
             className="w-full h-10 px-4 py-2 text-[0.7rem] outline-none"
-            style={{ height }}
+            style={{ height, ...custom }}
         />
 
     )

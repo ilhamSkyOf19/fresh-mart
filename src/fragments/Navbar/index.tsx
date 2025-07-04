@@ -114,12 +114,12 @@ const NavbarContentTwo: React.FC<PropsInputSearch> = ({ value, handleSearch }) =
                 </div>
 
                 {/* cart  */}
-                <div className='flex flex-row justify-center items-center w-[2.2rem] h-[2.2rem] bg-gray-200 rounded-full relative cursor-pointer group hover:bg-primary-green transition-all duration-200'>
+                <Link to={'/cart'} className='flex flex-row justify-center items-center w-[2.2rem] h-[2.2rem] bg-gray-200 rounded-full relative cursor-pointer group hover:bg-primary-green transition-all duration-200'>
                     <TiShoppingCart className='text-xl group-hover:text-white transition-all duration-200' />
                     <div className='w-[1.2rem] h-[1.2rem] bg-primary-green absolute top-0 -right-2 rounded-full flex flex-row justify-center items-center group-hover:bg-primary-orange transition-all duration-200 hover:'>
                         <p className='text-xs text-[0.6rem] text-white'>3</p>
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     )
