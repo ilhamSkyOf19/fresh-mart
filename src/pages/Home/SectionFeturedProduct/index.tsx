@@ -5,7 +5,8 @@ import CardProduct from '../../../components/CardProduct'
 // json 
 import ContainerSlideX from '../../../components/layouts/Container/SlideX'
 import type { ProductRes } from '../../../types/product-type'
-import { ProductServiceAPI } from '../../../service/createProduct.service'
+import { ProductServiceAPI } from '../../../service/api-product.service'
+import { ApiCartService } from '../../../service/api-cart.service'
 
 
 const SectionFeturedProduct: React.FC = () => {
@@ -49,6 +50,23 @@ const SectionFeturedProduct: React.FC = () => {
         );
     };
 
+    // handle cart 
+    const handleCart = async (idProduct: number | null, quantity: number) => {
+        try {
+            if (!idProduct) return alert('Product not found');
+            const result = await ApiCartService.updateQuantity(idProduct, quantity, 'add');
+            if (result?.success) {
+                alert(result.message);
+            } else if (result) {
+                alert(result.message); // misalnya: 'Stock not enough'
+            }
+        } catch (error) {
+            console.log(error);
+            return alert('Failed to add product to cart');
+        }
+    };
+
+
 
 
 
@@ -60,7 +78,7 @@ const SectionFeturedProduct: React.FC = () => {
         <div className='w-full min-h-[100vh] flex flex-col justify-start items-center bg-white-smoke'>
             <SubJudulGreenBlack label1='Featured' label2='Product' />
             <FilterListComponent handleCategory={handleCategory} />
-            <ContainerCardProduct data={data} handleFavorite={handleFavorite} />
+            <ContainerCardProduct data={data} handleFavorite={handleFavorite} handleCart={handleCart} />
 
         </div>
     )
@@ -95,17 +113,17 @@ const FilterListComponent: React.FC<FilterListProps> = ({ handleCategory }) => {
 type Props = {
     data?: ProductRes[] | null;
     handleFavorite?: (id: number | null, favorite: string) => void
+    handleCart?: (idProduct: number | null, quantity: number) => void
 }
 // const cards product 
-const ContainerCardProduct: React.FC<Props> = ({ data, handleFavorite }) => {
+const ContainerCardProduct: React.FC<Props> = ({ data, handleFavorite, handleCart }) => {
     return (
         <div className='w-full min-h-[50vh] flex flex-row justify-center items-center relative before:absolute before:w-full before:h-[1px] before:bg-gray-300 before:top-0 py-3'>
             <ContainerSlideX>
                 {
                     data ? (
                         data?.map((item, index) => (
-                            <CardProduct key={index} data={item} handleFavorite={handleFavorite} />
-
+                            <CardProduct key={index} data={item} handleFavorite={handleFavorite} handleCart={handleCart} />
                         ))
 
                     ) : (

@@ -9,18 +9,11 @@ import type { ProductRes } from '../../types/product-type';
 
 
 type Props = {
-    id?: number | null;
-    img?: string | null;
-    category?: string | null;
-    title?: string | null;
-    price?: number | null;
-    favorite?: boolean | null;
-    favoriteHover?: boolean | null
-    stock?: number | null
     handleFavorite?: (id: number | null, favorite: string) => void
     data?: ProductRes
+    handleCart?: (idProduct: number | null, quantity: number) => void
 }
-const CardProduct: React.FC<Props> = ({ handleFavorite, data }) => {
+const CardProduct: React.FC<Props> = ({ handleFavorite, data, handleCart }) => {
 
 
     return (
@@ -38,7 +31,7 @@ const CardProduct: React.FC<Props> = ({ handleFavorite, data }) => {
                     </div>
                 </div>
                 <div className='w-full flex-row flex justify-between items-center'>
-                    <div className='flex-1 flex flex-row justify-between items-center px-2 py-1 border-1 border-[rgba(0,0,0,0.3)] rounded-full  cursor-pointer group hover:bg-black transition-all duration-200'>
+                    <div className='flex-1 flex flex-row justify-between items-center px-2 py-1 border-1 border-[rgba(0,0,0,0.3)] rounded-full  cursor-pointer group hover:bg-black transition-all duration-200' onClick={() => handleCart?.(data?.id ?? 0, 1)}>
                         <FaCartArrowDown className='text-black text-lg group-hover:text-white transition-all duration-200' />
                         <p className='font-bold text-to-small uppercase group-hover:text-white transition-all duration-200'>add to cart</p>
                     </div>

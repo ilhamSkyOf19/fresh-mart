@@ -18,7 +18,7 @@ model Product {
   id        Int     @id @default(autoincrement())
   category  String
   title     String
-  price     Decimal @db.Decimal(10, 2)
+  price     Int
   favorite  Boolean @default(false)
   img       String
   netWeight Float // Berat bersih dalam satuan gram atau kilogram
@@ -30,6 +30,7 @@ model Product {
 model Cart {
   id        Int     @id @default(autoincrement())
   idProduct Int
+  quantity  Int
   product   Product @relation(fields: [idProduct], references: [id])
 
   @@map("cart") // opsional, jika ingin nama tabel di DB adalah 'cart'

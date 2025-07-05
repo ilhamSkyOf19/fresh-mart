@@ -13,10 +13,7 @@ productController.get('/products', async (c) => {
 
 productController.post('/products', async (c) => {
     const req = await c.req.json() as ProductReq;
-    console.log("📦 Incoming product:", req); // debug log
-
     const result = await ProductService.create(req);
-    console.log("✅ Created product:", result); // debug log
     return c.json(result);
 });
 
