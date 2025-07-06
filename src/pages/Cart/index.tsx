@@ -1,10 +1,6 @@
 import React, { useEffect, useState, type FC } from 'react'
-import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 
-
-// logo 
-import logo from '../../assets/logo/logo.png'
 
 
 // icons
@@ -12,6 +8,11 @@ import { IoCloseOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { type CartResAPI } from '../../types/cart-types';
 import { ApiCartService } from '../../service/api-cart.service';
+import PageLayout from '../../layouts/PageLayout';
+
+
+// img 
+import NoData from '../../components/NoData';
 
 // type code 
 type ObjectCode = {
@@ -121,36 +122,15 @@ const Cart = () => {
 
 
     return (
-        <div className='w-full min-h-[100vh] flex flex-col justify-start items-start'>
-            {/* navbar */}
-            <NavbarComponent />
+        <PageLayout>
             <ComponentCart data={data} handleCart={handleCart} subTotal={subTotal} disc={disc} handleDisc={handleDisc} handleDeleteCart={handleDeleteCart} />
-        </div>
+        </PageLayout>
+
     )
 }
 
 
-// navbar 
-const NavbarComponent: FC = () => {
 
-    // const navbar list 
-    const routerNavbar: string[] = ['Home', 'Product', 'About', 'Contact'];
-    return (
-        <div className='w-full flex flex-row justify-between items-center px-16 py-4'>
-            <div className='flex-1'>
-                <img src={logo} alt="logo" className='w-[7rem] flex-1' />
-            </div>
-            <div className='flex-1 flex flex-row justify-end items-center gap-8'>
-                {
-                    routerNavbar.map((item, index) => (
-                        <Link to={'/'} key={index} className='text-sm font-semibold relative cursor-pointer before:absolute before:h-[2px] before:bg-primary-green before:bottom-0 before:left-0 before:w-0 hover:before:w-full before:transition-all before:duration-200'>{item}</Link>
-
-                    ))
-                }
-            </div>
-        </div>
-    )
-}
 
 
 type ComponentCart = {
@@ -195,8 +175,8 @@ const ComponentLeft: FC<ComponentLeftProps> = ({ data, handleCart, handleDeleteC
                 </div>
                 <div className='w-full max-h-[80vh] flex flex-col justify-start items-start gap-4 overflow-y-scroll  py-5 scrollbar-hide'>
                     {
-                        data === null ? (
-                            <p className='text-sm font-semibold text-black'>Cart is empty</p>
+                        data?.length === 0 ? (
+                            <NoData label='Cart is empty' />
                         ) : (
                             data?.map((item, _) => (
                                 <CardCart key={item?.id} id={item?.id || 0} idProduct={item?.product?.id || 0} nameProduct={item?.product?.title || ''} category={item?.product?.category || ''} netWeight={item?.product?.netWeight || 0} price={item?.product?.price || 0} stock={item?.product?.stock || 0} quantity={item?.quantity} img={item?.product?.img || ''} handleCart={handleCart} handleDeleteCart={handleDeleteCart} />
@@ -300,7 +280,7 @@ const ComponentRight: FC<ComponentRightProps> = ({ subTotal, disc, handleDisc })
 
     return (
         <div className='flex-1 flex flex-col justify-start items-end'>
-            <div className='w-[90%] h-[28rem] bg-white-smoke rounded-lg flex flex-col justify-start items-start pt-12 px-8'>
+            <div className='w-[90%] h-[26rem] bg-white-smoke rounded-lg flex flex-col justify-start items-start pt-12 px-8'>
                 <p className='font-bold text-xl text-black mb-8'>Summary</p>
                 {/* sub total and disc */}
                 <div className='w-full flex flex-col justify-start items-start gap-2 mb-4'>

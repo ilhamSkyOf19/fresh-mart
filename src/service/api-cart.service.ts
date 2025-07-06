@@ -42,6 +42,7 @@ export class ApiCartService {
             if (!idProduct) return { success: false, message: 'Product not found' };
             // find product
             const findIdProduct = await this.get(idProduct);
+            // cek is not found product
             if (!findIdProduct) {
                 await this.create({ idProduct, quantity });
                 return { success: true, message: 'Product added to cart' };
@@ -49,11 +50,12 @@ export class ApiCartService {
                 if (findIdProduct?.product?.stock !== undefined) {
                     const resultQuantity = type === 'add' ? findIdProduct.quantity + quantity : findIdProduct.quantity - quantity;
                     console.log(resultQuantity);
-                    //cek stock
+                    //cek stock product
                     if (findIdProduct.product.stock < resultQuantity) return { success: false, message: 'Stock not enough' };
 
+                    // update qty product if stock is enough 
                     await API.put(`/api/carts/${idProduct}?quantity=${resultQuantity}`);
-                    return { success: true, message: 'Product updated in cart' };
+                    return { success: true, message: 'Product added in cart' };
                 } else {
                     return { success: false, message: 'Failed to add product to cart' };
                 }

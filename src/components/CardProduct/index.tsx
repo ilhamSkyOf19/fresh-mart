@@ -17,7 +17,7 @@ const CardProduct: React.FC<Props> = ({ handleFavorite, data, handleCart }) => {
 
 
     return (
-        <div className='w-[15rem] h-[24rem] flex flex-col flex-justify-center items-center bg-white shadow-md shrink-0 rounded-md'>
+        <div className='w-[15rem] h-[24rem] flex flex-col flex-justify-center items-center bg-white shadow-md shrink-0 rounded-md' >
             <div className='flex-1/5 w-full h-full flex justify-center items-center overflow-hidden group cursor-pointer'>
                 <img src={`/products/${data?.img ?? 'wheys.png'}`} alt="thumbnail" className='w-[70%]  object-cover group-hover:scale-110 transition-all duration-500' />
             </div>

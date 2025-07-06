@@ -24,6 +24,17 @@ export class ProductServiceAPI {
         }
     }
 
+    // get 
+    static async getProductsFavorite(favorite: boolean): Promise<ProductRes[] | undefined> {
+        try {
+            const result = await API.get(`/api/products/favorite/${favorite}`);
+            return result.data;
+        } catch (error) {
+            console.error("API error:", error);
+            return undefined;
+        }
+    }
+
     // update 
     static async updateFavorite(id: number, favorite: string): Promise<ProductRes | undefined> {
         try {

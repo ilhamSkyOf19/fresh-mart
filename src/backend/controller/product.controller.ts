@@ -11,6 +11,12 @@ productController.get('/products', async (c) => {
     return c.json(result);
 })
 
+productController.get('/products/favorite/:favorite', async (c) => {
+    const favorite = c.req.param("favorite") === 'true' ? true : false;
+    const result = await ProductService.getFavorite(favorite as boolean);;
+    return c.json(result);
+})
+
 productController.post('/products', async (c) => {
     const req = await c.req.json() as ProductReq;
     const result = await ProductService.create(req);

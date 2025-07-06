@@ -19,9 +19,11 @@ import { Link } from 'react-router-dom';
 import useHandleWrap from '../../hooks/handleWrap';
 
 type Props = {
-    showNavbar: boolean
+    showNavbar: boolean;
+    countCart: number
+    countFavorite: number
 }
-const Navbar: React.FC<Props> = ({ showNavbar }) => {
+const Navbar: React.FC<Props> = ({ showNavbar, countCart, countFavorite }) => {
 
     // state 
     const [showSubtitle, setShowSubtitle] = useState<boolean>(false)
@@ -69,7 +71,7 @@ const Navbar: React.FC<Props> = ({ showNavbar }) => {
             </div>
 
             {/* content two */}
-            <NavbarContentTwo handleSearch={handleSearch} value={search} />
+            <NavbarContentTwo handleSearch={handleSearch} value={search} countCart={countCart} countFavorite={countFavorite} />
             <NavbarContentThree showNavbar={showNavbar} />
         </div>
     )
@@ -84,10 +86,12 @@ const Navbar: React.FC<Props> = ({ showNavbar }) => {
 type PropsInputSearch = {
     value: string
     handleSearch: (event: React.ChangeEvent<HTMLInputElement>) => void
+    countCart: number
+    countFavorite: number
 }
 
 // Navbar content 2
-const NavbarContentTwo: React.FC<PropsInputSearch> = ({ value, handleSearch }) => {
+const NavbarContentTwo: React.FC<PropsInputSearch> = ({ value, handleSearch, countCart, countFavorite }) => {
     return (
         <div className='w-full flex flex-row justify-between items-center py-2 border-t px-6 border-slate-200'>
             <div className='flex-1 flex flex-row justify-start items-center'>
@@ -106,18 +110,18 @@ const NavbarContentTwo: React.FC<PropsInputSearch> = ({ value, handleSearch }) =
                 </div>
 
                 {/* favorite  */}
-                <div className='flex flex-row justify-center items-center w-[2.2rem] h-[2.2rem] bg-gray-200 rounded-full relative cursor-pointer group hover:bg-primary-orange transition-all duration-200'>
+                <Link to={'/favorite'} className='flex flex-row justify-center items-center w-[2.2rem] h-[2.2rem] bg-gray-200 rounded-full relative cursor-pointer group hover:bg-primary-orange transition-all duration-200'>
                     <MdOutlineFavoriteBorder className='text-lg group-hover:text-white transition-all duration-200' />
                     <div className='w-[1.2rem] h-[1.2rem] bg-primary-orange absolute top-0 -right-2 rounded-full flex flex-row justify-center items-center group-hover:bg-primary-green transition-all duration-200'>
-                        <p className='text-[0.6rem] text-white'>3</p>
+                        <p className='text-[0.6rem] text-white'>{countFavorite}</p>
                     </div>
-                </div>
+                </Link>
 
                 {/* cart  */}
                 <Link to={'/cart'} className='flex flex-row justify-center items-center w-[2.2rem] h-[2.2rem] bg-gray-200 rounded-full relative cursor-pointer group hover:bg-primary-green transition-all duration-200'>
                     <TiShoppingCart className='text-xl group-hover:text-white transition-all duration-200' />
                     <div className='w-[1.2rem] h-[1.2rem] bg-primary-green absolute top-0 -right-2 rounded-full flex flex-row justify-center items-center group-hover:bg-primary-orange transition-all duration-200 hover:'>
-                        <p className='text-xs text-[0.6rem] text-white'>3</p>
+                        <p className='text-xs text-[0.6rem] text-white'>{countCart}</p>
                     </div>
                 </Link>
             </div>

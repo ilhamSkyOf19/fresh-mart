@@ -32,6 +32,21 @@ export class ProductService {
         }
     }
 
+    // get 
+    static async getFavorite(favorite: boolean): Promise<ProductRes[] | undefined> {
+
+        try {
+            // get 
+            const result = await prismaClient.product.findMany({ where: { favorite: favorite as boolean } });
+            // return 
+            return result.map(productToRes);
+
+        } catch (error) {
+            console.log(error);
+            return undefined;
+        }
+    }
+
     // update 
     static async updateFavorite(id: number, favorite: string): Promise<ProductRes | undefined> {
 

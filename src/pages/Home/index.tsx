@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../fragments/Navbar'
 
 import SectionOne from './SectionThumbnail';
@@ -8,12 +8,17 @@ import SectionInformation from './SectionInformation';
 import SectionNewsBlogs from './SectionNewsBlogs';
 import SectionFeedback from './SectionFeedback';
 import SectionFooter from './SectionFooter';
+import { ApiCartService } from '../../service/api-cart.service';
+import { ProductServiceAPI } from '../../service/api-product.service';
 
 
 const index: React.FC = () => {
 
     const lastScrollY = React.useRef(0);
-    const [showNavbar, setShowNavbar] = React.useState(true);
+    const [showNavbar, setShowNavbar] = useState(true);
+    const [countCart, setCountCart] = useState(0)
+    const [countFavorite, setCountFavorite] = useState(0)
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -38,15 +43,57 @@ const index: React.FC = () => {
 
 
 
+    // handle count cart 
+    const handleCountCart = () => {
+        const fetch = async () => {
+            const fetch = await ApiCartService.getAll();
+            if (fetch) {
+                setCountCart(fetch.length);
+            } else {
+                setCountCart(0);
+            }
+        }
+
+        fetch();
+    }
+
+    useEffect(() => {
+        handleCountCart();
+    }, [])
+
+    // handle count cart 
+    const handleCountFavorite = () => {
+        const fetch = async () => {
+            const fetch = await ProductServiceAPI.getProductsFavorite(true);
+            if (fetch) {
+                setCountFavorite(fetch.length);
+            } else {
+                setCountFavorite(0);
+            }
+        }
+
+        fetch();
+    }
+
+    useEffect(() => {
+        handleCountFavorite();
+    }, [])
+
+    // useEffect(() => {
+    //     console.log(countCart);
+    // }, [countCart])
+
+
+
 
 
 
     return (
         <div className='w-full min-h-screen overflow-hidden flex flex-col justify-start items-center'>
-            <Navbar showNavbar={showNavbar} />
+            <Navbar showNavbar={showNavbar} countCart={countCart} countFavorite={countFavorite} />
             <SectionOne />
             <SectionTwo />
-            <SectionFeturedProduct />
+            <SectionFeturedProduct handleCountCart={handleCountCart} handleCountFavorite={handleCountFavorite} />
             <SectionInformation />
             <SectionNewsBlogs />
             <SectionFeedback />

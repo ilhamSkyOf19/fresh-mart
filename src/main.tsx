@@ -4,6 +4,7 @@ import './index.css'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Favorite from './pages/Favorite'
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <Cart />,
+  },
+  {
+    path: "/favorite",
+    element: <Favorite />,
   }
 
 ])

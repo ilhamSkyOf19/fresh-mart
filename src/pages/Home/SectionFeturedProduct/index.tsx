@@ -6,15 +6,18 @@ import CardProduct from '../../../components/CardProduct'
 import ContainerSlideX from '../../../components/layouts/Container/SlideX'
 import type { ProductRes } from '../../../types/product-type'
 import { ProductServiceAPI } from '../../../service/api-product.service'
-import { ApiCartService } from '../../../service/api-cart.service'
+import { handleCart, handleFavorite } from '../../../utils/handleCart'
 
+type PropsProduct = {
+    handleCountCart: () => void
+    handleCountFavorite: () => void
+}
 
-const SectionFeturedProduct: React.FC = () => {
+const SectionFeturedProduct: React.FC<PropsProduct> = ({ handleCountCart, handleCountFavorite }) => {
     // state data
     const [data, setData] = useState<ProductRes[] | null>(null);
     const [category, setCategory] = useState<string>('organic');
 
-    // get data
     // get data 
     useEffect(() => {
         const fetch = async () => {
@@ -36,37 +39,17 @@ const SectionFeturedProduct: React.FC = () => {
     };
 
     // handle favorite 
-    const handleFavorite = async (id: number | null, favorite: string) => {
+    const handleFavoriteProduct = async (id: number | null, favorite: string) => {
         if (!id) return;
-
-        await ProductServiceAPI.updateFavorite(id ?? 0, favorite);
-
-        setData((prev) =>
-            prev
-                ? prev.map((item) =>
-                    item.id === id ? { ...item, favorite: favorite === 'true' } : item
-                )
-                : prev
-        );
-    };
-
-    // handle cart 
-    const handleCart = async (idProduct: number | null, quantity: number) => {
-        try {
-            if (!idProduct) return alert('Product not found');
-            const result = await ApiCartService.updateQuantity(idProduct, quantity, 'add');
-            if (result?.success) {
-                alert(result.message);
-            } else if (result) {
-                alert(result.message); // misalnya: 'Stock not enough'
-            }
-        } catch (error) {
-            console.log(error);
-            return alert('Failed to add product to cart');
-        }
+        await handleFavorite(id, favorite, setData, handleCountFavorite);
     };
 
 
+    // handle cart product 
+    const handleCartProduct = async (idProduct: number | null, quantity: number) => {
+        if (!idProduct) return;
+        await handleCart(idProduct, quantity, handleCountCart);
+    }
 
 
 
@@ -78,7 +61,7 @@ const SectionFeturedProduct: React.FC = () => {
         <div className='w-full min-h-[100vh] flex flex-col justify-start items-center bg-white-smoke'>
             <SubJudulGreenBlack label1='Featured' label2='Product' />
             <FilterListComponent handleCategory={handleCategory} />
-            <ContainerCardProduct data={data} handleFavorite={handleFavorite} handleCart={handleCart} />
+            <ContainerCardProduct data={data} handleFavorite={handleFavoriteProduct} handleCart={handleCartProduct} />
 
         </div>
     )
