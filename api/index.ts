@@ -1,8 +1,8 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { productController } from "./controller/product.controller";
+import { productController } from "../src/backend/controller/product.controller";
 import "dotenv/config";
-import { cartController } from "./controller/cart.controller";
+import { cartController } from "../src/backend/controller/cart.controller";
 
 
 export const app = new Hono();

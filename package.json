@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "backend": "bun api/index.ts",
+    "generate": "prisma generate",
     "preview": "vite preview"
   },
   "dependencies": {
