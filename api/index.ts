@@ -11,7 +11,7 @@ app.use("*", cors());
 
 // app.get("/", (c) => c.text("Hello World!"));
 
-app.route("/api", productController);
-app.route("/api", cartController);
+app.route("/", productController);
+app.route("/", cartController);
 
 export default app
