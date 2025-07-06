@@ -1,7 +1,7 @@
 {
     "functions": {
         "api/index.ts": {
-            "runtime": "bun@1.2.14"
+            "runtime": "bun@1.0.6"
         }
     },
     "routes": [
