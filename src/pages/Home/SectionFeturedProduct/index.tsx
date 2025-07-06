@@ -3,7 +3,7 @@ import SubJudulGreenBlack from '../../../components/SubJudulGreenBlack'
 import CardProduct from '../../../components/CardProduct'
 
 // json 
-import ContainerSlideX from '../../../components/layouts/Container/SlideX'
+import ContainerSlideX from '../../../layouts/Container/SlideX'
 import type { ProductRes } from '../../../types/product-type'
 import { ProductServiceAPI } from '../../../service/api-product.service'
 import { handleCart, handleFavorite } from '../../../utils/handleCart'

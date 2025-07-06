@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SubJudulGreenBlack from '../../../components/SubJudulGreenBlack'
-import ContainerSlideX from '../../../components/layouts/Container/SlideX'
+import ContainerSlideX from '../../../layouts/Container/SlideX'
 import CardNewsBlogs from '../../../components/CardNewsBlogs'
 
 // json
