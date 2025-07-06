@@ -6,7 +6,7 @@ export class ApiCartService {
     // create
     static async create(cart: CartReqAPI): Promise<CartResAPI | undefined> {
         try {
-            const result = await API.post("/api/carts", cart);
+            const result = await API.post("/carts", cart);
             return result.data;
         } catch (error) {
             console.error("API error:", error);
@@ -17,7 +17,7 @@ export class ApiCartService {
     // get all 
     static async getAll(): Promise<CartResAPI[] | undefined> {
         try {
-            const result = await API.get("/api/carts");
+            const result = await API.get("/carts");
             return result.data;
         } catch (error) {
             console.error("API error:", error);
@@ -28,7 +28,7 @@ export class ApiCartService {
     // get 
     static async get(idProduct: number): Promise<CartResAPI | undefined> {
         try {
-            const result = await API.get(`/api/carts/${idProduct}`);
+            const result = await API.get(`/carts/${idProduct}`);
             return result.data;
         } catch (error) {
             console.error("API error:", error);
@@ -73,7 +73,7 @@ export class ApiCartService {
     static async delete(id: number): Promise<{ success: boolean, message: string }> {
         try {
             if (!id) return { success: false, message: 'Product not found' };
-            const result = await API.delete(`/api/carts/${id}`);
+            const result = await API.delete(`/carts/${id}`);
             return { success: true, message: result.data.message };
         } catch (error) {
             console.error("API error:", error);
