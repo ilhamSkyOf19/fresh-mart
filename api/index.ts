@@ -1,17 +1,15 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { productController } from "../src/backend/controller/product.controller";
-import "dotenv/config";
 import { cartController } from "../src/backend/controller/cart.controller";
+import "dotenv/config";
 
-
-export const app = new Hono();
+const app = new Hono();
 
 app.use("*", cors());
 
-// app.get("/", (c) => c.text("Hello World!"));
+// Gunakan route langsung, tanpa '/api' karena kamu sudah berada di /api di Vercel
+app.route("/", productController);
+app.route("/", cartController);
 
-app.route("/api", productController);
-app.route("/api", cartController);
-
-export default app
+export default app;
