@@ -14,6 +14,11 @@ import { ProductServiceAPI } from '../../service/api-product.service';
 
 const index: React.FC = () => {
 
+
+    useEffect(() => {
+        console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
+    }, [])
+
     const lastScrollY = React.useRef(0);
     const [showNavbar, setShowNavbar] = useState(true);
     const [countCart, setCountCart] = useState(0)
@@ -83,9 +88,8 @@ const index: React.FC = () => {
     //     console.log(countCart);
     // }, [countCart])
 
-    useEffect(() => {
-        console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
-    }, [])
+
+
 
 
 
