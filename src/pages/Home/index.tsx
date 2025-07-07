@@ -83,6 +83,7 @@ const index: React.FC = () => {
     //     console.log(countCart);
     // }, [countCart])
 
+    console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
 
 
 
