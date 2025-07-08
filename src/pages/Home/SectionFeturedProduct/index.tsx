@@ -11,9 +11,10 @@ import { handleCart, handleFavorite } from '../../../utils/handleCart'
 type PropsProduct = {
     handleCountCart: () => void
     handleCountFavorite: () => void
+    handleShowLoading: (condition: boolean) => void
 }
 
-const SectionFeturedProduct: React.FC<PropsProduct> = ({ handleCountCart, handleCountFavorite }) => {
+const SectionFeturedProduct: React.FC<PropsProduct> = ({ handleCountCart, handleCountFavorite, handleShowLoading }) => {
     // state data
     const [data, setData] = useState<ProductRes[] | null>(null);
     const [category, setCategory] = useState<string>('organic');
@@ -41,14 +42,29 @@ const SectionFeturedProduct: React.FC<PropsProduct> = ({ handleCountCart, handle
     // handle favorite 
     const handleFavoriteProduct = async (id: number | null, favorite: string) => {
         if (!id) return;
-        await handleFavorite(id, favorite, setData, handleCountFavorite);
+        try {
+            handleShowLoading(true);
+            await handleFavorite(id, favorite, setData, handleCountFavorite);
+        } catch (error) {
+            console.log(error);
+            return;
+        } finally {
+            handleShowLoading(false);
+        }
     };
 
 
     // handle cart product 
     const handleCartProduct = async (idProduct: number | null, quantity: number) => {
-        if (!idProduct) return;
-        await handleCart(idProduct, quantity, handleCountCart);
+        try {
+            handleShowLoading(true);
+            if (!idProduct) return;
+            await handleCart(idProduct, quantity, handleCountCart);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            handleShowLoading(false);
+        }
     }
 
 
@@ -62,7 +78,6 @@ const SectionFeturedProduct: React.FC<PropsProduct> = ({ handleCountCart, handle
             <SubJudulGreenBlack label1='Featured' label2='Product' />
             <FilterListComponent handleCategory={handleCategory} />
             <ContainerCardProduct data={data} handleFavorite={handleFavoriteProduct} handleCart={handleCartProduct} />
-
         </div>
     )
 }

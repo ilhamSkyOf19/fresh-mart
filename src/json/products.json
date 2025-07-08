@@ -37,15 +37,6 @@
     },
     {
         "category": "bread",
-        "title": "Baguette Bread - Freshly Baked by Origin Bakery",
-        "price": 99,
-        "favorite": false,
-        "img": "baguette-bread-2.png",
-        "netWeight": 100,
-        "stock": 3
-    },
-    {
-        "category": "bread",
         "title": "White Bread - Freshly Baked by Origin Bakery",
         "price": 99,
         "favorite": false,

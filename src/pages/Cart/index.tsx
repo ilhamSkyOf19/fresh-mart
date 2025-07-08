@@ -13,6 +13,8 @@ import PageLayout from '../../layouts/PageLayout';
 
 // img 
 import NoData from '../../components/NoData';
+import useSetLoading from '../../hooks/setLoading';
+import ModalLoading from '../../components/ModalLoading';
 
 // type code 
 type ObjectCode = {
@@ -20,11 +22,16 @@ type ObjectCode = {
     disc: number
 }
 
+
 const Cart = () => {
     // state code 
     const [data, setData] = useState<CartResAPI[] | null>([])
     const [disc, setDisc] = useState<number>(0)
     const [subTotal, setSubTotal] = useState<number>(0)
+
+    // handle loading 
+    const { loading, handleLoading } = useSetLoading()
+
 
     const code: ObjectCode[] = [
         {
@@ -62,6 +69,7 @@ const Cart = () => {
     const handleCart = async (idProduct: number | null, quantity: number, type: string) => {
         try {
             if (!idProduct) return alert('Product not found');
+            handleLoading(true)
             const result = await ApiCartService.updateQuantity(idProduct, quantity, type);
             if (result?.success) {
                 // alert(result.message);
@@ -73,6 +81,8 @@ const Cart = () => {
         } catch (error) {
             console.log(error);
             return alert('Failed to add product to cart');
+        } finally {
+            handleLoading(false)
         }
     };
 
@@ -100,8 +110,8 @@ const Cart = () => {
     // handle delete 
     const handleDeleteCart = async (id: number) => {
         try {
+            handleLoading(true)
             if (!id) return alert('Product not found');
-            console.log(id)
             const result = await ApiCartService.delete(id);
             if (result?.success) {
                 // alert(result.message);
@@ -110,6 +120,8 @@ const Cart = () => {
         } catch (error) {
             console.log(error);
             return alert('Failed to delete product from cart');
+        } finally {
+            handleLoading(false)
         }
     }
 
@@ -124,6 +136,7 @@ const Cart = () => {
     return (
         <PageLayout>
             <ComponentCart data={data} handleCart={handleCart} subTotal={subTotal} disc={disc} handleDisc={handleDisc} handleDeleteCart={handleDeleteCart} />
+            <ModalLoading show={loading} />
         </PageLayout>
 
     )

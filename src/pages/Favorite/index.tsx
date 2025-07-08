@@ -8,11 +8,16 @@ import { handleFavorite } from '../../utils/handleCart';
 
 // img 
 import NoData from '../../components/NoData';
+import useSetLoading from '../../hooks/setLoading';
+import ModalLoading from '../../components/ModalLoading';
 
 const Favorite: FC = () => {
 
     // state 
     const [data, setData] = useState<ProductRes[] | null>(null);
+
+    // handle loading 
+    const { loading, handleLoading } = useSetLoading();
 
     // fetch data 
     const fetchData = async () => {
@@ -29,9 +34,16 @@ const Favorite: FC = () => {
 
     // handle favorite 
     const handleFavoriteProduct = async (id: number | null, favorite: string) => {
-        if (!id) return;
-        await handleFavorite(id, favorite, setData, fetchData);
-        fetchData();
+        try {
+            handleLoading(true);
+            if (!id) return;
+            await handleFavorite(id, favorite, setData, fetchData);
+            fetchData();
+        } catch (error) {
+            console.log(error);
+        } finally {
+            handleLoading(false);
+        }
     };
 
 
@@ -52,6 +64,7 @@ const Favorite: FC = () => {
                     }
                 </div>
             </div>
+            <ModalLoading show={loading} />
         </PageLayout>
 
     )

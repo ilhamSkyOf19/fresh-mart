@@ -10,15 +10,12 @@ import SectionFeedback from './SectionFeedback';
 import SectionFooter from './SectionFooter';
 import { ApiCartService } from '../../service/api-cart.service';
 import { ProductServiceAPI } from '../../service/api-product.service';
+import ModalLoading from '../../components/ModalLoading';
+import useSetLoading from '../../hooks/setLoading';
+
 
 
 const index: React.FC = () => {
-
-
-    useEffect(() => {
-        console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
-        console.log('ok')
-    }, [])
 
     const lastScrollY = React.useRef(0);
     const [showNavbar, setShowNavbar] = useState(true);
@@ -90,6 +87,10 @@ const index: React.FC = () => {
     // }, [countCart])
 
 
+    // loading 
+    const { loading, handleLoading: handleShowLoading } = useSetLoading();
+
+
 
 
 
@@ -102,11 +103,12 @@ const index: React.FC = () => {
             <Navbar showNavbar={showNavbar} countCart={countCart} countFavorite={countFavorite} />
             <SectionOne />
             <SectionTwo />
-            <SectionFeturedProduct handleCountCart={handleCountCart} handleCountFavorite={handleCountFavorite} />
+            <SectionFeturedProduct handleCountCart={handleCountCart} handleCountFavorite={handleCountFavorite} handleShowLoading={handleShowLoading} />
             <SectionInformation />
             <SectionNewsBlogs />
             <SectionFeedback />
             <SectionFooter />
+            <ModalLoading show={loading} />
         </div>
     )
 }
