@@ -88,12 +88,16 @@ const Cart = () => {
 
     // total cart 
     useEffect(() => {
-        const total = data?.reduce(
-            (acc, item) => acc + item.quantity * (item?.product?.price || 0),
-            0
-        ) || 0;
+        const total = Array.isArray(data)
+            ? data.reduce(
+                (acc, item) => acc + item.quantity * (item.product?.price ?? 0),
+                0
+            )
+            : 0;
+
         setSubTotal(total);
-    }, [data])
+    }, [data]);
+
 
 
     // handle disc
