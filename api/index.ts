@@ -8,7 +8,7 @@ const app = new Hono().basePath("/api");
 app.use(
     "*",
     cors({
-        origin: "https://your-project-name.vercel.app", // ganti dengan domain vercel kamu
+        origin: "https://fresh-mart-indol.vercel.app/", // ganti dengan domain vercel kamu
         credentials: true, // kalau pakai cookie / auth
     })
 );
