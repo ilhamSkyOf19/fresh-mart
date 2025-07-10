@@ -5,14 +5,7 @@ import { cartController } from "../src/backend/controller/cart.controller";
 
 const app = new Hono().basePath("/api");
 
-app.use(
-    "*",
-    cors({
-        origin: "https://fresh-mart-indol.vercel.app/", // ganti dengan domain vercel kamu
-        credentials: true, // kalau pakai cookie / auth
-    })
-);
-
+app.use("*", cors());
 
 app.route("/", productController);
 app.route("/", cartController);
