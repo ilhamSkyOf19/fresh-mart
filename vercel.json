@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "version": 2,
     "builds": [
         {
@@ -24,6 +25,17 @@
         {
             "src": "/(.*)",
             "dest": "/index.html"
+=======
+    "functions": {
+        "api/index.ts": {
+            "runtime": "edge"
+        }
+    },
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "api/index.ts"
+>>>>>>> 3d59e6e (update)
         }
     ]
 }
