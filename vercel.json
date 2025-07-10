@@ -1,31 +1,4 @@
 {
-<<<<<<< HEAD
-    "version": 2,
-    "builds": [
-        {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "dist"
-            }
-        },
-        {
-            "src": "api_build/index.js",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "api_build/index.js"
-        },
-        {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
-=======
     "functions": {
         "api/index.ts": {
             "runtime": "edge"
@@ -35,7 +8,6 @@
         {
             "src": "/api/(.*)",
             "dest": "api/index.ts"
->>>>>>> 3d59e6e (update)
         }
     ]
 }
