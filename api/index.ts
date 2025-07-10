@@ -5,7 +5,14 @@ import { cartController } from "../src/backend/controller/cart.controller";
 
 const app = new Hono().basePath("/api");
 
-app.use("*", cors());
+app.use(
+    "*",
+    cors({
+        origin: "https://your-project-name.vercel.app", // ganti dengan domain vercel kamu
+        credentials: true, // kalau pakai cookie / auth
+    })
+);
+
 
 app.route("/", productController);
 app.route("/", cartController);
