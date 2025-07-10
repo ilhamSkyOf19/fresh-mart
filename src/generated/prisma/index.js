@@ -137,7 +137,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Web_Devlop\\REACT\\BUN\\nike-store\\src\\generated\\prisma",
+      "value": "D:\\Web_Devlop\\REACT\\fresh-mart\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -151,7 +151,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\Web_Devlop\\REACT\\BUN\\nike-store\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\Web_Devlop\\REACT\\fresh-mart\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
