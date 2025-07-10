@@ -119,15 +119,22 @@ const ContainerCardProduct: React.FC<Props> = ({ data, handleFavorite, handleCar
         <div className='w-full min-h-[50vh] flex flex-row justify-center items-center relative before:absolute before:w-full before:h-[1px] before:bg-gray-300 before:top-0 py-3'>
             <ContainerSlideX>
                 {
-                    data ? (
-                        data?.map((item, index) => (
-                            <CardProduct key={index} data={item} handleFavorite={handleFavorite} handleCart={handleCart} />
+                    Array.isArray(data) && data.length > 0 ? (
+                        data.map((item, index) => (
+                            <CardProduct
+                                key={index}
+                                data={item}
+                                handleFavorite={handleFavorite}
+                                handleCart={handleCart}
+                            />
                         ))
-
                     ) : (
-                        <div className='w-full h-full flex flex-row justify-center items-center'>Loading...</div>
+                        <div className='w-full h-full flex flex-row justify-center items-center'>
+                            Loading...
+                        </div>
                     )
                 }
+
             </ContainerSlideX>
         </div>
     )
