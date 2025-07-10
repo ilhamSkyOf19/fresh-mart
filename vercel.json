@@ -9,14 +9,14 @@
             }
         },
         {
-            "src": "api/index.ts",
+            "src": "api_build/index.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/api/(.*)",
-            "dest": "api/index.ts"
+            "dest": "api_build/index.js"
         },
         {
             "handle": "filesystem"
