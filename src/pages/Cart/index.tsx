@@ -188,15 +188,29 @@ const ComponentLeft: FC<ComponentLeftProps> = ({ data, handleCart, handleDeleteC
                 </div>
                 <div className='w-full max-h-[80vh] flex flex-col justify-start items-start gap-4 overflow-y-scroll  py-5 scrollbar-hide'>
                     {
-                        data?.length === 0 ? (
-                            <NoData label='Cart is empty' />
+                        Array.isArray(data) && data.length === 0 ? (
+                            <NoData label="Cart is empty" />
                         ) : (
-                            data?.map((item, _) => (
-                                <CardCart key={item?.id} id={item?.id || 0} idProduct={item?.product?.id || 0} nameProduct={item?.product?.title || ''} category={item?.product?.category || ''} netWeight={item?.product?.netWeight || 0} price={item?.product?.price || 0} stock={item?.product?.stock || 0} quantity={item?.quantity} img={item?.product?.img || ''} handleCart={handleCart} handleDeleteCart={handleDeleteCart} />
-
+                            Array.isArray(data) &&
+                            data.map((item) => (
+                                <CardCart
+                                    key={item.id}
+                                    id={item.id}
+                                    idProduct={item.product?.id ?? 0}
+                                    nameProduct={item.product?.title ?? ''}
+                                    category={item.product?.category ?? ''}
+                                    netWeight={item.product?.netWeight ?? 0}
+                                    price={item.product?.price ?? 0}
+                                    stock={item.product?.stock ?? 0}
+                                    quantity={item.quantity}
+                                    img={item.product?.img ?? ''}
+                                    handleCart={handleCart}
+                                    handleDeleteCart={handleDeleteCart}
+                                />
                             ))
                         )
                     }
+
 
                 </div>
             </div>

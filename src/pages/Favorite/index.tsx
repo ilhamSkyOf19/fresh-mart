@@ -54,14 +54,20 @@ const Favorite: FC = () => {
                 <p className='text-2xl font-bold text-black mb-4'>Product Favorite.</p>
                 <div className='w-full flex flex-row justify-center items-center flex-wrap gap-10 pb-4'>
                     {
-                        data?.length === 0 ? (
-                            <NoData label='Favorite is empty' />
+                        Array.isArray(data) && data.length === 0 ? (
+                            <NoData label="Favorite is empty" />
                         ) : (
-                            data?.map((item, index) => (
-                                <CardProduct key={index} data={item ?? []} handleFavorite={handleFavoriteProduct} />
+                            Array.isArray(data) &&
+                            data.map((item, index) => (
+                                <CardProduct
+                                    key={index}
+                                    data={item}
+                                    handleFavorite={handleFavoriteProduct}
+                                />
                             ))
                         )
                     }
+
                 </div>
             </div>
             <ModalLoading show={loading} />
